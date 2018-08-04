@@ -1,0 +1,51 @@
+﻿@model IEnumerable<EasyCondominio.Models.Bloco>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Blocos</h2>
+
+    <p>
+        @Html.ActionLink("Criar novo bloco", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumBloco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QtdAptos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AreaTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Condominio.NomeCondominio)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumBloco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtdAptos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AreaTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Condominio.NomeCondominio)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id=item.BlocoId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id=item.BlocoId }) |
+                @Html.ActionLink("Excluir", "Delete", new { id=item.BlocoId })
+            </td>
+        </tr>
+    }   
+    </table>
+

@@ -1,0 +1,65 @@
+﻿@model EasyCondominio.Models.Bloco
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-default" style="margin-top:5px">
+
+    <div class="panel-heading">
+        Tem certeza que deseja excluir o bloco <strong>@Model.NumBloco</strong>?
+    </div>
+
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NumBloco, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(model => model.NumBloco)
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.QtdAptos, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(model => model.QtdAptos)
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AreaTotal, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(model => model.AreaTotal)
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Condominio.NomeCondominio, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(model => model.Condominio.NomeCondominio)
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="col-md-10">
+                    <input type="submit" value="Sim, exclua" class="btn btn-default" /> |
+                    @Html.ActionLink("Retornar", "Index")
+                </div>
+            }
+        </div>
+
+    </div>
+
+</div>
+

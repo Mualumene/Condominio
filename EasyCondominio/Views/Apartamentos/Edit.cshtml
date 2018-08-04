@@ -1,0 +1,63 @@
+﻿@model EasyCondominio.Models.Apartamento
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ApartamentoId)
+
+    <div class="panel panel-default" style="margin-top: 5px">
+
+        <div class="panel-heading">
+            Edição do apartamento <strong>@Model.NumApto</strong> - Bloco <strong>@Model.Bloco.NumBloco</strong>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NumApto, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.NumApto, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NumApto, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BlocoId, "Bloco", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.DropDownList("BlocoId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BlocoId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ProprietarioId, "Proprietário", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.DropDownList("ProprietarioId", null, "-- Selecione --", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ProprietarioId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+}

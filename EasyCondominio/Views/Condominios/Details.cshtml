@@ -1,0 +1,87 @@
+﻿@model EasyCondominio.Models.Condominio
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-default" style="margin-top:5px">
+
+    <div class="panel-heading">
+        Detalhes do condomínio <strong>@Model.NomeCondominio</strong>
+    </div>
+
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NomeCondominio, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(model => model.NomeCondominio)
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NumeroBlocos, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(model => model.NumeroBlocos)
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Endereco, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(model => model.Endereco)
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complemento, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(model => model.Complemento)
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Bairro, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(model => model.Bairro)
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Cidade, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(model => model.Cidade)
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UF, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(model => model.UF)
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                @Html.ActionLink("Editar", "Edit", new { id = Model.CondominioId }) |
+                @Html.ActionLink("Retornar", "Index")
+            </div>
+        </div>
+
+    </div>
+
+</div>

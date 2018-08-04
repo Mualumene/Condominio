@@ -1,0 +1,83 @@
+﻿@using EasyCondominio.Infraestrutura
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - EasyCondomínio</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("EasyCondomínio", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">                                           
+                            @{
+                                if (Html.GetAuthenticatedUser().ToString() != "")
+                                {
+                                    @Html.GetAuthenticatedUser();
+                                }
+                            }                       
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        @{
+                            if (Html.GetAuthenticatedUser().ToString() != "")
+                            {
+                                <li>
+                                    <a href="@Url.Action("Logout","Account")"><i class="fa fa-fw fa-power-off"></i>Log Out</a>
+                                </li>
+
+                            }
+                            else
+                            {
+                                <li>
+                                    <a href="@Url.Action("Login","Account")"><i class="fa fa-fw fa-power-off"></i>Log In</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </li>
+            </ul>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Condominios", "Index", "Condominios")</li>
+                    @if (User.IsInRole("Administradores"))
+                    {                       
+                        <li>@Html.ActionLink("Blocos", "Index", "Blocos")</li>
+                        <li>@Html.ActionLink("Apartamentos", "Index", "Apartamentos")</li>
+                    }
+                    <li>@Html.ActionLink("Proprietários", "Index", "Proprietarios")</li>                                     
+                    <li>@Html.ActionLink("Usuários", "Index", "Admin")</li>
+                    <li>@Html.ActionLink("Papéis", "Index", "PapelAdmin")</li>                                  
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - EasyCondominio</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

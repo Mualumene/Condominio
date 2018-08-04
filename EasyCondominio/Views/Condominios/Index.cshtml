@@ -1,0 +1,60 @@
+﻿@model IEnumerable<EasyCondominio.Models.Condominio>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Condomínio</h2>
+
+@if (Model.Count() == 0)
+{
+    <p>
+        @Html.ActionLink("Criar novo condomínio", "Create")
+    </p>
+}  
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeCondominio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bairro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UF)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeCondominio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bairro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UF)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id=item.CondominioId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id=item.CondominioId }) |
+                @Html.ActionLink("Excluir", "Delete", new { id=item.CondominioId })
+            </td>
+        </tr>
+    } 
+    </table>
+

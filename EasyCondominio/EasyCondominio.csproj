@@ -223,6 +223,7 @@
     <Content Include="Views\PapelAdmin\Delete.cshtml" />
     <Content Include="Views\Admin\Details.cshtml" />
     <Content Include="Views\Apartamentos\Edit.cshtml" />
+    <Content Include="Views\Apartamentos\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

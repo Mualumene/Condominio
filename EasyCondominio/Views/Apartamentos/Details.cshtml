@@ -1,0 +1,55 @@
+﻿@model EasyCondominio.Models.Apartamento
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-default" style="margin-top:5px">
+
+    <div class="panel-heading">
+        Detalhes do apartamento <strong>@Model.NumApto</strong> - Bloco @Model.Bloco.NumBloco
+    </div>
+
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Bloco.NumBloco, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(model => model.Bloco.NumBloco)
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Proprietario.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(model => model.Proprietario.Nome)
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NumApto, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(model => model.NumApto)
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                    @Html.ActionLink("Editar", "Edit", new { id = Model.ApartamentoId }) |
+                    @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+   
+
+

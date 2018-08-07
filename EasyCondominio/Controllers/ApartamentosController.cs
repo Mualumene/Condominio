@@ -70,5 +70,25 @@ namespace EasyCondominio.Controllers
             }
             return View(apartamento);
         }
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Apartamento apartamento = context.Apartamentos.Find(id);
+
+
+            if (apartamento == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.BlocoId = new SelectList(context.Blocos.OrderBy(b => b.NumBloco), "BlocoId", "NumBloco", apartamento.BlocoId);
+            ViewBag.ProprietarioId = new SelectList(context.Proprietarios.OrderBy(p => p.Nome), "ProprietarioId", "Nome", apartamento.ProprietarioId);
+            return View(apartamento);
+        }
     }
 }

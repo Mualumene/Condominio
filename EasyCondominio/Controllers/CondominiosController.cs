@@ -9,7 +9,7 @@ namespace EasyCondominio.Controllers
   [Authorize(Roles ="Administradores")]
   public class CondominiosController : Controller
   {
-
+    //
     private GenericDAL<Condominio> genericDAL = new GenericDAL<Condominio>();
 
     public ActionResult Index()

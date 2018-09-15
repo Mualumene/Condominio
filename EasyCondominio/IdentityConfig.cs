@@ -1,4 +1,4 @@
-﻿using EasyCondominio.Contexto;
+﻿using DAL.Contexto;
 using EasyCondominio.Infraestrutura;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
@@ -11,18 +11,18 @@ using System.Web;
 
 namespace EasyCondominio
 {
-    public class IdentityConfig
+  public class IdentityConfig
+  {
+    public void Configuration(IAppBuilder app)
     {
-        public void Configuration(IAppBuilder app)
-        {
-            app.CreatePerOwinContext(EFContext.Create);
-            app.CreatePerOwinContext<GerenciadorUsuario>(GerenciadorUsuario.Create);
-            app.CreatePerOwinContext<GerenciadorPapel>(GerenciadorPapel.Create);
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Account/Login"),
-            });
-        }
+      app.CreatePerOwinContext(IdentityContext.Create);
+      app.CreatePerOwinContext<GerenciadorUsuario>(GerenciadorUsuario.Create);
+      app.CreatePerOwinContext<GerenciadorPapel>(GerenciadorPapel.Create);
+      app.UseCookieAuthentication(new CookieAuthenticationOptions
+      {
+        AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+        LoginPath = new PathString("/Account/Login"),
+      });
     }
+  }
 }

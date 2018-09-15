@@ -1,5 +1,5 @@
-﻿using EasyCondominio.Contexto;
-using EasyCondominio.Models;
+﻿using DAL.Contexto;
+using BLL.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -17,7 +17,7 @@ namespace EasyCondominio.Infraestrutura
 
         public static GerenciadorPapel Create(IdentityFactoryOptions<GerenciadorPapel> options, IOwinContext context)
         {
-            return new GerenciadorPapel(new RoleStore<Papel>(context.Get<EFContext>()));
+            return new GerenciadorPapel(new RoleStore<Papel>(context.Get<IdentityContext>()));
         }
     }
 }

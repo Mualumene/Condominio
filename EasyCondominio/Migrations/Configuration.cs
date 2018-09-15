@@ -5,7 +5,7 @@ namespace EasyCondominio.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<EasyCondominio.Contexto.EFContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DAL.Contexto.EFContext>
     {
         public Configuration()
         {
@@ -17,7 +17,7 @@ namespace EasyCondominio.Migrations
             ContextKey = "EasyCondominio.Contexto.EFContext";
         }
 
-        protected override void Seed(EasyCondominio.Contexto.EFContext context)
+        protected override void Seed(DAL.Contexto.EFContext context)
         {
             //  This method will be called after migrating to the latest version.
 
